@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="m-3 p-2">
+    <div className="flex justify-between items-center shadow-lg">
+      <div className="m-2 p-2">
         <div className="flex">
           <img
             alt="hamburger icon"
@@ -18,7 +18,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="m-3 p-2">
+      <div className="m-2 p-2">
         <input
           type="text"
           className="w-96 h-auto border border-black rounded-l-full "
@@ -28,7 +28,7 @@ const Header = () => {
         </button>
       </div>
 
-      <div className="m-3 p-2">
+      <div className="m-2 p-2">
         <img
           className="h-9 p-2"
           alt="user-logo "
