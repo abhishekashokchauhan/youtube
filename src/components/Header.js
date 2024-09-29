@@ -1,13 +1,25 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const toggleSidebar = () => {
+    dispatch(toggleMenu());
+  };
+
   return (
     <div className="flex justify-between items-center shadow-lg">
       <div className="m-2 p-2">
         <div className="flex">
           <img
             alt="hamburger icon"
-            className="h-9 p-2"
+            className="h-9 p-2 cursor-pointer"
+            onClick={() => {
+              toggleSidebar();
+            }}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/800px-Hamburger_icon.svg.png"
           />
           <img
