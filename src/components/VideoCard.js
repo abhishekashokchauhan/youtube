@@ -16,4 +16,14 @@ const VideoCard = ({ info }) => {
   );
 };
 
+// Defining the higher order component here
+
+export const AdVideoCard = ({ info }) => {
+  return (
+    <div className="p-2 m-2 border border-red-400">
+      <VideoCard info={info} />
+    </div>
+  );
+};
+
 export default VideoCard;
