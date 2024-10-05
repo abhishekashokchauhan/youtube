@@ -19,8 +19,8 @@ const ButtonList = () => {
 
   return (
     <div className="flex first:m-0">
-      {categories.map((category) => (
-        <MyButton name={category} />
+      {categories.map((category, index) => (
+        <MyButton key={index} name={category} />
       ))}
     </div>
   );
