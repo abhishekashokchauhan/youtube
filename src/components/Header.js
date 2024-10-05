@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { cacheResult } from "../utils/searchSlice";
 import { Link } from "react-router-dom";
 import { YOUTUBE_SEARCH_API, API_KEY } from "../utils/constants";
 
@@ -10,9 +11,15 @@ const Header = () => {
   const [isFocused, setIsFocused] = useState(false);
   const dispatch = useDispatch();
 
+  const searchStore = useSelector((store) => store.search);
+
   useEffect(() => {
     let timer = setTimeout(() => {
-      getSearchDataFromYTApi(searchText);
+      if (searchStore[searchText]) {
+        setSearchResult(searchStore[searchText]);
+      } else {
+        getSearchDataFromYTApi(searchText);
+      }
     }, 2000);
 
     return () => {
@@ -27,6 +34,9 @@ const Header = () => {
     );
     const data = await response.json();
     const { items } = data;
+    const itemResults = items.map((item) => item.snippet.title);
+
+    dispatch(cacheResult({ [searchText]: [itemResults] }));
     setSearchResult(items);
   };
 
