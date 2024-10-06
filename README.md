@@ -1,3 +1,7 @@
+# Hosted at
+
+https://abhishek-yt-clone.web.app/
+
 # Building YouTube
 
 - What we would be building / Functional requirements ?
@@ -6,7 +10,10 @@
   - On home page, we can show the popular videos
   - On Left side, we can have a panel.
   - Clicking on a video, would play the video and would hide the sidebar.
-  - Other scope is TBD, let's do above in 2 hours.
+  - Implemented the search with debouncing
+  - Stored the search data in the redux store, to prevent making API calls for existing search.
+  - Made the nested "n" level comments.
+  - Hosted on the firebase.
 
 - What tech stack we would be using ?
 
